@@ -508,6 +508,7 @@ body {
 }
 
 /* ── NAVBAR ── */
+/* ── NAVBAR ── */
 .navbar {
   position: fixed;
   top: 0;
@@ -521,6 +522,8 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: background 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .nav-logo {
@@ -532,6 +535,7 @@ body {
   letter-spacing: 0.05em;
   color: var(--texto-oscuro);
   text-decoration: none;
+  transition: color 0.4s ease;
 }
 
 .nav-logo-mark {
@@ -550,7 +554,7 @@ body {
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s, color 0.4s ease;
 }
 
 .nav-links a:hover { color: var(--naranja); }
@@ -563,10 +567,38 @@ body {
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
-  transition: background 0.2s;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .nav-cta:hover { background: var(--naranja); }
+
+/* ── NAVBAR OSCURO (al scrollear a zona negra) ── */
+.navbar-oscuro {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.navbar-oscuro .nav-logo {
+  color: var(--blanco);
+}
+
+.navbar-oscuro .nav-links a {
+  color: var(--blanco);
+}
+
+.navbar-oscuro .nav-links a:hover {
+  color: var(--naranja);
+}
+
+.navbar-oscuro .nav-cta {
+  background: #fff;
+  color: #000;
+}
+
+.navbar-oscuro .nav-cta:hover {
+  background: var(--naranja);
+  color: #000;
+}
 
 /* ── TECNOLOGÍAS (MARQUEE) ── */
 .tech-section {
