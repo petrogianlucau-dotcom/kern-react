@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Wave from './components/Wave'
 import Statement from './components/Statement'
 import Servicios from './components/Servicios'
+import Tecnologias from './components/Tecnologias'
 import Casos from './components/Casos'
 import Footer from './components/Footer'
 import useScrollReveal from './components/useScrollReveal'
@@ -22,6 +23,7 @@ function App() {
         <Statement />
         <div className="divisor-oscuro"></div>
         <Servicios />
+        <Tecnologias />
         <div className="divisor-oscuro"></div>
         <Casos />
       </div>
