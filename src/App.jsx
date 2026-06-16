@@ -1,34 +1,31 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Wave from './components/Wave'
-import Statement from './components/Statement'
-import Servicios from './components/Servicios'
-import Tecnologias from './components/Tecnologias'
-import Casos from './components/Casos'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import ServiciosPage from './pages/Servicios'
+import CasosPage from './pages/Casos'
+import FAQ from './pages/FAQ'
+import Contacto from './pages/Contacto'
 import useScrollReveal from './components/useScrollReveal'
 
 function App() {
   useScrollReveal()
 
   return (
-    <div>
+    <BrowserRouter>
       <Cursor />
       <Navbar />
-      <Hero />
-      <Wave />
-      <div className="seccion-negra">
-        <Statement />
-        <div className="divisor-oscuro"></div>
-        <Servicios />
-        <Tecnologias />
-        <div className="divisor-oscuro"></div>
-        <Casos />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/servicios" element={<ServiciosPage />} />
+        <Route path="/casos" element={<CasosPage />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   )
 }
 

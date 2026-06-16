@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [oscuro, setOscuro] = useState(false)
@@ -13,17 +14,17 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${oscuro ? 'navbar-oscuro' : ''}`}>
-      <a href="#" className="nav-logo">
+      <Link to="/" className="nav-logo">
         <span className="nav-logo-mark">◢◣</span>
         KERN
-      </a>
+      </Link>
       <div className="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#casos">Casos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
+        <Link to="/servicios">Servicios</Link>
+        <Link to="/casos">Casos</Link>
+        <Link to="/faq">FAQ</Link>
+        <Link to="/contacto">Contacto</Link>
       </div>
-      <a href="#contacto" className="nav-cta">Hablemos</a>
+      <Link to="/contacto" className="nav-cta">Hablemos</Link>
     </nav>
   )
 }
