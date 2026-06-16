@@ -5,7 +5,6 @@ function Navbar() {
 
   useEffect(() => {
     const onScroll = () => {
-      // cuando pasamos el 80% de la altura de pantalla, ya estamos en zona negra
       setOscuro(window.scrollY > window.innerHeight * 0.8)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -21,6 +20,12 @@ function Navbar() {
       <div className="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#casos">Casos</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </div>
       <a href="#contacto" className="nav-cta">Hablemos</a>
+    </nav>
+  )
+}
+
+export default Navbar
