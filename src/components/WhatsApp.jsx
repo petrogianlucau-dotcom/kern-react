@@ -5,7 +5,7 @@ function WhatsApp() {
   const link = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`
 
   return (
-    
+    <a
       href={link}
       className="wsp-float"
       target="_blank"
