@@ -1,6 +1,4 @@
 function WhatsApp() {
-  // Cambiá este número por el definitivo cuando lo tengas.
-  // Formato: código de país + número, sin espacios ni símbolos. Ej: 5491122334455
   const numero = "5491100000000"
   const mensaje = "Hola! Quiero saber más sobre las automatizaciones de Kern."
 
