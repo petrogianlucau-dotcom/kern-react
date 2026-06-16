@@ -709,6 +709,7 @@ body {
 }
 
 /* ── WHATSAPP FLOTANTE ── */
+/* ── WHATSAPP FLOTANTE ── */
 .wsp-float {
   position: fixed;
   bottom: 2rem;
@@ -730,4 +731,8 @@ body {
 .wsp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+}
+
+.wsp-float svg {
+  pointer-events: none;
 }
