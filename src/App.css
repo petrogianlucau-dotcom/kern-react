@@ -23,30 +23,30 @@ body {
   overflow-x: hidden;
 }
 
-* { cursor: none; }
+  * { cursor: none; }
 
-#cursor {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(249, 115, 22, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s;
-}
+  #cursor {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(249, 115, 22, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+  }
 
-#cursor-dot {
-  position: fixed;
-  width: 5px;
-  height: 5px;
-  background: var(--naranja);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
+  #cursor-dot {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: var(--naranja);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
 
 .hero {
   min-height: 100vh;
@@ -736,3 +736,47 @@ body {
 .wsp-float svg {
   pointer-events: none;
 }
+
+/* ── KERN LOGO NAVBAR ── */
+.nav-logo-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--texto-oscuro);
+  transition: color 0.4s ease;
+}
+
+.navbar-oscuro .nav-logo-text {
+  color: var(--blanco);
+}
+
+.kern-ring {
+  transform-origin: 18px 18px;
+}
+
+.kern-ring-3 {
+  animation: kernBreath 3s ease-in-out infinite;
+}
+
+.kern-ring-2 {
+  animation: kernBreath 3s ease-in-out infinite 0.3s;
+}
+
+.kern-nucleus {
+  transform-origin: 18px 18px;
+  animation: kernPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes kernBreath {
+  0%, 100% { opacity: 0.18; }
+  50%       { opacity: 0.4;  }
+}
+
+@keyframes kernPulse {
+  0%, 100% { transform: scale(1);    opacity: 1;   }
+  50%       { transform: scale(1.15); opacity: 0.85; }
+}
+
+.nav-logo:hover .kern-ring-3 { opacity: 0.35; }
+.nav-logo:hover .kern-ring-2 { opacity: 0.7;  }
+.nav-logo:hover .kern-nucleus { transform: scale(1.1); }
