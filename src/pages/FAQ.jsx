@@ -35,28 +35,14 @@ function FaqItem({ pregunta, respuesta, index }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div
-      className={`faq-item-v2 ${open ? 'open' : ''}`}
-      onClick={() => setOpen(!open)}
-    >
+    <div className={`faq-item-v2 ${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
       <div className="faq-header">
         <div className="faq-num">0{index + 1}</div>
         <h3 className="faq-question">{pregunta}</h3>
         <div className="faq-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <line
-              x1="10" y1="4" x2="10" y2="16"
-              stroke="#f97316"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              className="faq-icon-v"
-            />
-            <line
-              x1="4" y1="10" x2="16" y2="10"
-              stroke="#f97316"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
+            <line x1="10" y1="4" x2="10" y2="16" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round" className="faq-icon-v"/>
+            <line x1="4" y1="10" x2="16" y2="10" stroke="#f97316" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
         </div>
       </div>
@@ -71,17 +57,14 @@ function FAQ() {
   return (
     <div className="seccion-negra" style={{ paddingTop: '8rem', minHeight: '100vh' }}>
       <div className="section-wrap">
-        <p className="section-tag">FAQ</p>
-        <h2 className="section-title">Preguntas frecuentes</h2>
-        <p className="section-sub">Si quedan dudas, hablemos.</p>
+        <div className="faq-page-header">
+          <p className="section-tag">FAQ</p>
+          <h2 className="section-title">Preguntas frecuentes</h2>
+          <p className="section-sub">Si quedan dudas, hablemos.</p>
+        </div>
         <div className="faq-lista-v2">
           {preguntas.map((p, i) => (
-            <FaqItem
-              key={i}
-              index={i}
-              pregunta={p.q}
-              respuesta={p.a}
-            />
+            <FaqItem key={i} index={i} pregunta={p.q} respuesta={p.a} />
           ))}
         </div>
       </div>
