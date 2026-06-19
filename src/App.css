@@ -1003,3 +1003,71 @@ body {
   border-color: rgba(249,115,22,0.35);
   color: var(--naranja);
 }
+/* ── CTA FINAL HOME ── */
+.cta-final-wrap {
+  text-align: center;
+  padding: 6rem 2rem 7rem;
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.cta-final-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--blanco);
+  margin: 1rem 0;
+}
+
+.cta-final-sub {
+  font-size: 1rem;
+  color: var(--gris);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.cta-final-btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: var(--naranja);
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta-final-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ── ESPACIOS NEGROS — reducir padding excesivo ── */
+.seccion-negra .section-wrap {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.statement-wrap {
+  padding: 4rem 4rem 3rem;
+}
+
+.tech-section {
+  padding: 3rem 0;
+}
+
+@media (max-width: 768px) {
+  .cta-final-wrap { padding: 4rem 1.5rem 5rem; }
+  .cta-final-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .cta-final-sub { font-size: 0.95rem; }
+  .seccion-negra .section-wrap { padding-top: 3rem; padding-bottom: 3rem; }
+  .statement-wrap { padding: 3rem 1.5rem 2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .cta-final-wrap { padding: 3rem 1.25rem 4rem; }
+  .statement-wrap { padding: 2.5rem 1.25rem 2rem; }
+}
