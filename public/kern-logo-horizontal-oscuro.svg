@@ -1,0 +1,11 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="200" rx="24" fill="#1c1917"/>
+  <!-- Símbolo -->
+  <circle cx="100" cy="100" r="62" stroke="#f97316" stroke-width="4" opacity="0.2" fill="none"/>
+  <circle cx="100" cy="100" r="40" stroke="#f97316" stroke-width="5" opacity="0.45" fill="none"/>
+  <circle cx="100" cy="100" r="20" fill="#f97316"/>
+  <!-- Wordmark -->
+  <text x="188" y="118" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="#faf7f2">kern</text>
+  <!-- Tagline -->
+  <text x="190" y="148" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="14" letter-spacing="2" fill="#faf7f2" opacity="0.35" text-transform="uppercase">LO QUE PASA CUANDO NO ESTÁS</text>
+</svg>
