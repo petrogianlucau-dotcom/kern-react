@@ -1,8 +1,42 @@
+import { useState } from 'react'
+
 function Contacto() {
+  const [form, setForm] = useState({
+    nombre: '',
+    empresa: '',
+    email: '',
+    whatsapp: '',
+    mensaje: ''
+  })
+  const [estado, setEstado] = useState('idle') // idle | enviando | ok | error
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setEstado('enviando')
+    try {
+      const res = await fetch('https://gianpetrocelli.app.n8n.cloud/webhook/kern-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      })
+      if (res.ok) {
+        setEstado('ok')
+        setForm({ nombre: '', empresa: '', email: '', whatsapp: '', mensaje: '' })
+      } else {
+        setEstado('error')
+      }
+    } catch {
+      setEstado('error')
+    }
+  }
+
   return (
     <div className="contacto-page">
       <div className="contacto-wrap">
-
         {/* HEADER */}
         <div className="contacto-header">
           <p className="section-tag">Contacto</p>
@@ -12,7 +46,6 @@ function Contacto() {
 
         {/* GRID: info + form */}
         <div className="contacto-grid">
-
           {/* INFO */}
           <div className="contacto-info">
             <div className="contacto-card">
@@ -51,36 +84,83 @@ function Contacto() {
           </div>
 
           {/* FORM */}
-          <form className="contacto-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-row">
-              <div className="form-field">
-                <label>Nombre</label>
-                <input type="text" placeholder="Juan García" />
-              </div>
-              <div className="form-field">
-                <label>Empresa</label>
-                <input type="text" placeholder="Mi Empresa SA" />
-              </div>
+          {estado === 'ok' ? (
+            <div className="contacto-success">
+              <div className="contacto-success-icon">✓</div>
+              <h3>¡Consulta recibida!</h3>
+              <p>En menos de 48 horas te respondemos con un diagnóstico personalizado. Revisá tu mail.</p>
             </div>
-            <div className="form-row">
-              <div className="form-field">
-                <label>Mail</label>
-                <input type="email" placeholder="juan@empresa.com" />
+          ) : (
+            <form className="contacto-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-field">
+                  <label>Nombre</label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={form.nombre}
+                    onChange={handleChange}
+                    placeholder="Juan García"
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label>Empresa</label>
+                  <input
+                    type="text"
+                    name="empresa"
+                    value={form.empresa}
+                    onChange={handleChange}
+                    placeholder="Mi Empresa SA"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="form-row">
+                <div className="form-field">
+                  <label>Mail</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="juan@empresa.com"
+                    required
+                  />
+                </div>
+                <div className="form-field">
+                  <label>WhatsApp <span className="form-optional">(opcional)</span></label>
+                  <input
+                    type="text"
+                    name="whatsapp"
+                    value={form.whatsapp}
+                    onChange={handleChange}
+                    placeholder="+54 9 11 0000 0000"
+                  />
+                </div>
               </div>
               <div className="form-field">
-                <label>WhatsApp <span className="form-optional">(opcional)</span></label>
-                <input type="text" placeholder="+54 9 11 0000 0000" />
+                <label>¿Qué proceso querés automatizar?</label>
+                <textarea
+                  name="mensaje"
+                  value={form.mensaje}
+                  onChange={handleChange}
+                  placeholder="Contanos cómo lo hacen hoy. Por ejemplo: 'Cada vez que entra un mail con una factura, alguien la carga a mano en una planilla...'"
+                  required
+                />
               </div>
-            </div>
-            <div className="form-field">
-              <label>¿Qué proceso querés automatizar?</label>
-              <textarea placeholder="Contanos cómo lo hacen hoy. Por ejemplo: 'Cada vez que entra un mail con una factura, alguien la carga a mano en una planilla...'"></textarea>
-            </div>
-            <button type="submit" className="contacto-submit">
-              Enviar consulta →
-            </button>
-          </form>
-
+              {estado === 'error' && (
+                <p className="contacto-error">Algo salió mal. Intentá de nuevo o escribinos por WhatsApp.</p>
+              )}
+              <button
+                type="submit"
+                className="contacto-submit"
+                disabled={estado === 'enviando'}
+              >
+                {estado === 'enviando' ? 'Enviando...' : 'Enviar consulta →'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>
