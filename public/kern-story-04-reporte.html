@@ -4,17 +4,7 @@
 <meta charset="UTF-8">
 <style>
   html,body{margin:0;padding:0;width:1080px;height:1920px;overflow:hidden;background:#1c1917;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
-  .story{width:1080px;height:1920px;position:relative;box-sizing:border-box;padding:56px 64px;display:flex;flex-direction:column;}
-  .bars{display:flex;gap:8px;margin-bottom:24px;}
-  .bar{flex:1;height:4px;border-radius:2px;background:rgba(244,241,236,0.25);}
-  .bar.active{background:#f4f1ec;}
-  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
-  .who{display:flex;align-items:center;gap:16px;}
-  .avatar{width:64px;height:64px;border-radius:50%;background:#EA7C3C;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid rgba(244,241,236,0.3);}
-  .avatar img{width:100%;height:100%;object-fit:cover;}
-  .whoname{color:#f4f1ec;font-size:26px;font-weight:600;}
-  .whotime{color:#a89f92;font-size:22px;margin-left:10px;}
-  .close{color:#f4f1ec;font-size:40px;font-weight:300;opacity:0.85;}
+  .story{width:1080px;height:1920px;position:relative;box-sizing:border-box;padding:260px 64px 300px;display:flex;flex-direction:column;justify-content:center;}
   .hook{color:#f4f1ec;font-size:56px;font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px;}
   .sub{color:#c9c2b8;font-size:27px;line-height:1.45;margin-bottom:48px;max-width:900px;}
 
@@ -35,25 +25,13 @@
   .marrow{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #EA7C3C;margin-top:-2px;align-self:flex-end;}
   .statusline{text-align:center;color:#5c9c72;font-size:18px;font-weight:500;margin-top:36px;}
 
-  .cta{margin-top:auto;text-align:left;}
+  .cta{margin-top:56px;text-align:left;}
   .ctaline{color:#f4f1ec;font-size:36px;font-weight:700;margin-bottom:8px;}
   .ctasub{color:#EA7C3C;font-size:30px;font-weight:600;}
-  .bottom{margin-top:48px;display:flex;align-items:center;gap:20px;}
-  .msgbox{flex:1;height:80px;border:2px solid rgba(244,241,236,0.35);border-radius:40px;display:flex;align-items:center;padding:0 32px;color:#a89f92;font-size:26px;}
-  .react{width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:36px;}
 </style>
 </head>
 <body>
 <div class="story">
-  <div class="bars"><div class="bar active"></div><div class="bar"></div><div class="bar"></div></div>
-  <div class="top">
-    <div class="who">
-      <div class="avatar"><img src="https://gokern.netlify.app/kern-icon-mail.jpg"></div>
-      <div><span class="whoname">kern</span><span class="whotime">5 h</span></div>
-    </div>
-    <div class="close">&times;</div>
-  </div>
-
   <div class="hook">Tu reporte,<br>listo antes<br>del café</div>
   <div class="sub">Cada lunes a las 9am el sistema arma el resumen del negocio y lo manda solo.</div>
 
@@ -87,13 +65,6 @@
   <div class="cta">
     <div class="ctaline">¿Querés uno así para tu negocio?</div>
     <div class="ctasub">Escribinos →</div>
-  </div>
-
-  <div class="bottom">
-    <div class="msgbox">Enviar mensaje</div>
-    <div class="react">&#10084;&#65039;</div>
-    <div class="react">&#128293;</div>
-    <div class="react">&#128079;</div>
   </div>
 </div>
 </body>
