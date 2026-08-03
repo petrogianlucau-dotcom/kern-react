@@ -6,7 +6,8 @@ function Contacto() {
     empresa: '',
     email: '',
     whatsapp: '',
-    mensaje: ''
+    mensaje: '',
+    web: ''
   })
   const [estado, setEstado] = useState('idle') // idle | enviando | ok | error
 
@@ -16,6 +17,11 @@ function Contacto() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+if (form.web) {
+  setEstado('ok')
+    setForm({ nombre: '', empresa: '', email: '', whatsapp: '', mensaje: '', web: '' })
+      return
+}
     setEstado('enviando')
     try {
       const res = await fetch('https://gianpetrocelli.app.n8n.cloud/webhook/kern-lead', {
@@ -25,7 +31,7 @@ function Contacto() {
       })
       if (res.ok) {
         setEstado('ok')
-        setForm({ nombre: '', empresa: '', email: '', whatsapp: '', mensaje: '' })
+        setForm({ nombre: '', empresa: '', email: '', whatsapp: '', mensaje: '', web: '' })
       } else {
         setEstado('error')
       }
@@ -92,6 +98,7 @@ function Contacto() {
             </div>
           ) : (
             <form className="contacto-form" onSubmit={handleSubmit}>
+              <input type="text" name="web" value={form.web} onChange={handleChange} style={{ position: 'absolute', left: '-9999px' }} tabIndex="-1" autoComplete="off" aria-hidden="true" />
               <div className="form-row">
                 <div className="form-field">
                   <label>Nombre</label>
