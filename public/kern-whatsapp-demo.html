@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; }
+  html,body{margin:0;padding:0;width:1080px;background:#0b141a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+  #phone{width:1080px;background:#ece5dd;position:relative;overflow:hidden;}
+
+  /* status bar */
+  .statusbar{height:56px;background:#075E54;display:flex;align-items:center;justify-content:space-between;padding:0 36px;color:#fff;font-size:26px;font-weight:600;}
+  .statusicons{display:flex;align-items:center;gap:10px;}
+
+  /* whatsapp header */
+  .wheader{height:130px;background:#075E54;display:flex;align-items:center;padding:0 24px;gap:20px;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
+  .back{color:#fff;font-size:44px;font-weight:300;}
+  .avatar{width:76px;height:76px;border-radius:50%;overflow:hidden;background:#EA7C3C;flex-shrink:0;}
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .whoinfo{flex:1;}
+  .whoname{color:#fff;font-size:32px;font-weight:600;}
+  .whostatus{color:#d7ece8;font-size:22px;margin-top:2px;height:28px;}
+  .hicons{display:flex;gap:34px;color:#fff;font-size:34px;}
+
+  /* chat area */
+  #chatarea{padding:34px 28px 28px;display:flex;flex-direction:column;gap:4px;}
+
+  .sysnote{align-self:center;background:#fef6c9;color:#5a5228;font-size:20px;padding:14px 22px;border-radius:10px;max-width:760px;text-align:center;line-height:1.4;margin-bottom:18px;box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+
+  .row{display:flex;width:100%;margin:6px 0;}
+  .row.in{justify-content:flex-start;}
+  .row.out{justify-content:flex-end;}
+  .bubble{max-width:700px;padding:16px 20px 12px;border-radius:14px;font-size:26px;line-height:1.42;position:relative;box-shadow:0 1px 1px rgba(0,0,0,0.1);}
+  .bubble.in{background:#ffffff;color:#111b21;border-top-left-radius:2px;}
+  .bubble.out{background:#d9fdd3;color:#111b21;border-top-right-radius:2px;}
+  .autotag{display:block;color:#8a9a92;font-size:18px;margin-bottom:6px;font-weight:600;}
+  .meta{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-top:6px;color:#667781;font-size:18px;}
+  .ticks{color:#53bdeb;font-size:20px;}
+
+  .bottombar{background:#f0f0f0;padding:18px 20px;display:flex;align-items:center;gap:18px;border-top:1px solid rgba(0,0,0,0.05);}
+  .inputpill{flex:1;background:#fff;border-radius:30px;height:64px;display:flex;align-items:center;padding:0 26px;color:#8b9a9a;font-size:24px;gap:18px;}
+  .roundbtn{width:64px;height:64px;border-radius:50%;background:#075E54;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .roundbtn svg{width:30px;height:30px;}
+
+  .typingdots{display:inline-flex;gap:4px;align-items:center;}
+  .typingdots span{width:8px;height:8px;border-radius:50%;background:#d7ece8;display:inline-block;animation:blink 1s infinite;}
+  .typingdots span:nth-child(2){animation-delay:0.2s;}
+  .typingdots span:nth-child(3){animation-delay:0.4s;}
+  @keyframes blink{0%,80%,100%{opacity:0.3;}40%{opacity:1;}}
+
+  .msg{display:none;}
+  .msg.show{display:flex;}
+</style>
+</head>
+<body>
+<div id="phone">
+  <div class="statusbar">
+    <span id="clock">10:16</span>
+    <div class="statusicons">
+      <span>📶</span><span>🔋</span>
+    </div>
+  </div>
+  <div class="wheader">
+    <div class="back">&#8249;</div>
+    <div class="avatar"><img src="https://gokern.netlify.app/kern-icon-mail.jpg"></div>
+    <div class="whoinfo">
+      <div class="whoname">Kern</div>
+      <div class="whostatus" id="whostatus">en línea</div>
+    </div>
+    <div class="hicons">
+      <span>&#128249;</span><span>&#128222;</span>
+    </div>
+  </div>
+
+  <div id="chatarea">
+    <div class="sysnote">🔒 Kern usa respuestas automáticas para agilizar tu consulta</div>
+
+    <div class="row in msg show" data-i="0">
+      <div class="bubble in">Hola! quería consultar precios de instalación<div class="meta">10:14</div></div>
+    </div>
+
+    <div class="row in msg" data-i="1">
+      <div class="bubble in"><span class="autotag">Respuesta automática</span>¡Hola! 👋 Gracias por escribirnos a Kern<div class="meta">10:14</div></div>
+    </div>
+
+    <div class="row in msg" data-i="2">
+      <div class="bubble in">Te paso la info: instalación completa desde $180.000, incluye configuración y soporte<div class="meta">10:14</div></div>
+    </div>
+
+    <div class="row in msg" data-i="3">
+      <div class="bubble in">¿Querés que te agendemos una demo con el equipo?<div class="meta">10:15</div></div>
+    </div>
+
+    <div class="row out msg" data-i="4">
+      <div class="bubble out">Dale, genial 🙌<div class="meta">10:16 <span class="ticks">✓✓</span></div></div>
+    </div>
+
+    <div class="row in msg" data-i="5">
+      <div class="bubble in">Perfecto ✅ Ya avisé a Martín del equipo comercial, te escribe en breve<div class="meta">10:16</div></div>
+    </div>
+  </div>
+
+  <div class="bottombar">
+    <div class="inputpill">😊 &nbsp; Mensaje</div>
+    <div class="roundbtn">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  const rows = Array.from(document.querySelectorAll('.msg'));
+  const statusEl = document.getElementById('whostatus');
+
+  // state 0 = only system note visible (nothing in rows shown)
+  window.setState = function(msgCount, typing){
+    rows.forEach((r,idx)=>{
+      if(idx < msgCount){ r.classList.add('show'); } else { r.classList.remove('show'); }
+    });
+    statusEl.innerHTML = typing ? 'escribiendo<span class="typingdots"><span></span><span></span><span></span></span>' : 'en línea';
+  };
+
+  window.showAll = function(){
+    rows.forEach(r=>r.classList.add('show'));
+    statusEl.textContent = 'en línea';
+  };
+
+  window.getHeight = function(){
+    return document.getElementById('phone').getBoundingClientRect().height;
+  };
+
+  // default: show everything (static export)
+  window.showAll();
+</script>
+</body>
+</html>
