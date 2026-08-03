@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  html,body{margin:0;padding:0;width:1080px;height:1920px;overflow:hidden;background:#1c1917;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .story{width:1080px;height:1920px;position:relative;box-sizing:border-box;padding:56px 64px;display:flex;flex-direction:column;}
+  .bars{display:flex;gap:8px;margin-bottom:24px;}
+  .bar{flex:1;height:4px;border-radius:2px;background:rgba(244,241,236,0.25);}
+  .bar.active{background:#f4f1ec;}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
+  .who{display:flex;align-items:center;gap:16px;}
+  .avatar{width:64px;height:64px;border-radius:50%;background:#EA7C3C;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid rgba(244,241,236,0.3);}
+  .avatar img{width:100%;height:100%;object-fit:cover;}
+  .whoname{color:#f4f1ec;font-size:26px;font-weight:600;}
+  .whotime{color:#a89f92;font-size:22px;margin-left:10px;}
+  .close{color:#f4f1ec;font-size:40px;font-weight:300;opacity:0.85;}
+  .hook{color:#f4f1ec;font-size:56px;font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px;}
+  .sub{color:#c9c2b8;font-size:27px;line-height:1.45;margin-bottom:48px;max-width:900px;}
+
+  .screenshot-frame{background:#141210;border-radius:24px;border:1px solid rgba(244,241,236,0.1);box-shadow:0 30px 70px rgba(0,0,0,0.5);padding:0 0 36px;margin-bottom:48px;}
+  .titlebar{display:flex;align-items:center;gap:10px;padding:20px 24px;border-bottom:1px solid rgba(244,241,236,0.08);}
+  .dot{width:12px;height:12px;border-radius:50%;}
+  .titletext{color:#6b645c;font-size:20px;margin-left:10px;font-weight:500;}
+  .canvas{padding:52px 32px 24px;}
+  .flowrow{display:flex;align-items:flex-start;justify-content:center;}
+  .mnode{width:112px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;position:relative;}
+  .mnode svg{width:96px;height:96px;background:#26221f;border:1px solid rgba(244,241,236,0.14);border-radius:22px;padding:28px;box-sizing:border-box;}
+  .mnode .check{position:absolute;top:-6px;right:6px;width:30px;height:30px;border-radius:50%;background:#3cb26b;display:flex;align-items:center;justify-content:center;border:3px solid #141210;}
+  .mnode .check svg{all:unset;width:16px;height:16px;}
+  .mlabel{color:#c9c2b8;font-size:19px;font-weight:500;margin-top:14px;text-align:center;line-height:1.25;}
+  .mconn{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:44px;margin:0 2px;position:relative;width:56px;}
+  .itemtag{color:#7a7268;font-size:15px;position:absolute;top:0;white-space:nowrap;}
+  .mline{width:100%;height:2px;background:#EA7C3C;margin-top:22px;}
+  .marrow{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid #EA7C3C;margin-top:-2px;align-self:flex-end;}
+  .statusline{text-align:center;color:#5c9c72;font-size:18px;font-weight:500;margin-top:36px;}
+
+  .cta{margin-top:auto;text-align:left;}
+  .ctaline{color:#f4f1ec;font-size:36px;font-weight:700;margin-bottom:8px;}
+  .ctasub{color:#EA7C3C;font-size:30px;font-weight:600;}
+  .bottom{margin-top:48px;display:flex;align-items:center;gap:20px;}
+  .msgbox{flex:1;height:80px;border:2px solid rgba(244,241,236,0.35);border-radius:40px;display:flex;align-items:center;padding:0 32px;color:#a89f92;font-size:26px;}
+  .react{width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:36px;}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="bars"><div class="bar active"></div><div class="bar"></div><div class="bar"></div></div>
+  <div class="top">
+    <div class="who">
+      <div class="avatar"><img src="https://gokern.netlify.app/kern-icon-mail.jpg"></div>
+      <div><span class="whoname">kern</span><span class="whotime">1 h</span></div>
+    </div>
+    <div class="close">&times;</div>
+  </div>
+
+  <div class="hook">Tu WhatsApp<br>respondiendo<br>solo</div>
+  <div class="sub">Clasifica la consulta, responde lo básico y avisa al vendedor si hace falta una persona.</div>
+
+  <div class="screenshot-frame">
+    <div class="titlebar">
+      <div class="dot" style="background:#ec6a5e"></div><div class="dot" style="background:#f4bf4f"></div><div class="dot" style="background:#61c454"></div>
+      <span class="titletext">flujo real · n8n</span>
+    </div>
+    <div class="canvas">
+      <div class="flowrow"><div class="mnode">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#EA7C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <div class="mlabel">Llega por WhatsApp</div>
+    </div><div class="mconn"><span class="itemtag">1 item</span><div class="mline"></div><div class="marrow"></div></div><div class="mnode">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#EA7C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+      <div class="mlabel">Se clasifica sola</div>
+    </div><div class="mconn"><span class="itemtag">1 item</span><div class="mline"></div><div class="marrow"></div></div><div class="mnode">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#EA7C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      <div class="mlabel">Responde sola</div>
+    </div></div>
+      <div class="statusline">Ejecutado con éxito</div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="ctaline">¿Querés uno así para tu negocio?</div>
+    <div class="ctasub">Escribinos →</div>
+  </div>
+
+  <div class="bottom">
+    <div class="msgbox">Enviar mensaje</div>
+    <div class="react">&#10084;&#65039;</div>
+    <div class="react">&#128293;</div>
+    <div class="react">&#128079;</div>
+  </div>
+</div>
+</body>
+</html>
