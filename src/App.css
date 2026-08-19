@@ -14,6 +14,8 @@
   --blanco: #f4f4f5;
   --texto-oscuro: #111111;
   --texto-medio: #555555;
+  --verde: #22c55e;
+  --verde-glow: rgba(34, 197, 94, 0.2);
 }
 
 body {
@@ -151,11 +153,11 @@ body {
 
 .btn-ghost-dark:hover { background: rgba(0, 0, 0, 0.05); }
 
-/* ── OLA ── */
+/* ── OLA (MEJORADA) ── */
 .wave-section {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   background: transparent;
   overflow: hidden;
   margin-bottom: -1px;
@@ -179,7 +181,7 @@ body {
   display: block;
 }
 
-/* ── SECCIÓN NEGRA ── */
+/* ── SECCIÓN NEGRA (CON GLOW MEJORADO) ── */
 .seccion-negra {
   background: #000;
   color: var(--blanco);
@@ -191,12 +193,12 @@ body {
 .seccion-negra::before {
   content: '';
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 60%);
-  filter: blur(80px);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 60%);
+  filter: blur(120px);
   pointer-events: none;
   z-index: 0;
 }
@@ -208,8 +210,8 @@ body {
   right: -10%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 60%);
-  filter: blur(90px);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
@@ -554,7 +556,7 @@ body {
 .tech-track { display: flex; gap: 1rem; width: max-content; animation: scroll-tech 32s linear infinite; }
 .tech-marquee:hover .tech-track { animation-play-state: paused; }
 @keyframes scroll-tech { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.tech-pill { display: flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.5rem; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; white-space: nowrap; flex-shrink: 0; transition: border-color 0.3s, background 0.3s; }
+.tech-pill { display: flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.5rem; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
 .tech-pill:hover { border-color: var(--naranja-border); background: #111; }
 .tech-logo { width: 20px; height: 20px; opacity: 0.7; }
 .tech-pill span { font-size: 0.9rem; color: var(--gris); font-weight: 500; }
@@ -661,14 +663,14 @@ body {
 
 /* ── CONTACTO ── */
 .form-contacto { display: flex; flex-direction: column; gap: 1rem; max-width: 560px; }
-.form-contacto input, .form-contacto textarea { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.9rem 1.1rem; color: var(--blanco); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color 0.2s; }
+.form-contacto input, .form-contacto textarea { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.9rem 1.1rem; color: var(--blanco); font-size: 0.95rem; }
 .form-contacto input:focus, .form-contacto textarea:focus { border-color: var(--naranja); }
 .form-contacto input::placeholder, .form-contacto textarea::placeholder { color: rgba(255,255,255,0.3); }
 .form-contacto textarea { min-height: 140px; resize: vertical; }
 .form-contacto .btn-primary { border: none; cursor: none; margin-top: 0.5rem; align-self: flex-start; }
 
 /* ── WHATSAPP ── */
-.wsp-float { position: fixed; bottom: 2rem; right: 2rem; width: 58px; height: 58px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1500; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: transform 0.2s, box-shadow 0.2s; cursor: none; }
+.wsp-float { position: fixed; bottom: 2rem; right: 2rem; width: 58px; height: 58px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); transition: transform 0.2s, box-shadow 0.2s; z-index: 100; }
 .wsp-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55); }
 .wsp-float svg { pointer-events: none; }
 
@@ -697,6 +699,7 @@ body {
   .caso-row { grid-template-columns: 100px 1fr; gap: 1.5rem; }
   .caso-big-num { font-size: 4.5rem; }
   .footer-negro { padding: 4rem 2.5rem 2rem; }
+  .wave-section { height: 60vh; }
 }
 
 /* ── MOBILE < 768px ── */
@@ -713,7 +716,7 @@ body {
   .hero-glow { width: 400px; height: 300px; }
   .hero-btns { flex-direction: column; align-items: center; width: 100%; }
   .hero-btns a { width: 100%; text-align: center; }
-  .wave-section { height: 30vh; }
+  .wave-section { height: 40vh; }
   .section-wrap { padding: 4rem 1.5rem; }
   .statement-wrap { padding: 4rem 1.5rem; }
   .statement p { font-size: clamp(1.6rem, 6vw, 2.5rem); }
@@ -750,6 +753,7 @@ body {
   .statement p { font-size: clamp(1.4rem, 7vw, 2rem); }
   .caso-big-num { font-size: 3rem; }
   .footer-negro { padding: 2.5rem 1.25rem 1.5rem; }
+  .wave-section { height: 35vh; }
 }
 
 /* ── CONTACTO V2 ── */
@@ -999,75 +1003,7 @@ body {
 }
 
 .footer-social-btn:hover {
-  background: rgba(249,115,22,0.12);
-  border-color: rgba(249,115,22,0.35);
-  color: var(--naranja);
-}
-/* ── CTA FINAL HOME ── */
-.cta-final-wrap {
-  text-align: center;
-  padding: 6rem 2rem 7rem;
-  max-width: 700px;
-  margin: 0 auto;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-.cta-final-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.16);
   color: var(--blanco);
-  margin: 1rem 0;
-}
-
-.cta-final-sub {
-  font-size: 1rem;
-  color: var(--gris);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-}
-
-.cta-final-btn {
-  display: inline-block;
-  padding: 0.9rem 2.5rem;
-  background: var(--naranja);
-  color: #000;
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.cta-final-btn:hover {
-  opacity: 0.88;
-  transform: translateY(-2px);
-}
-
-/* ── ESPACIOS NEGROS — reducir padding excesivo ── */
-.seccion-negra .section-wrap {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.statement-wrap {
-  padding: 4rem 4rem 3rem;
-}
-
-.tech-section {
-  padding: 3rem 0;
-}
-
-@media (max-width: 768px) {
-  .cta-final-wrap { padding: 4rem 1.5rem 5rem; }
-  .cta-final-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-  .cta-final-sub { font-size: 0.95rem; }
-  .seccion-negra .section-wrap { padding-top: 3rem; padding-bottom: 3rem; }
-  .statement-wrap { padding: 3rem 1.5rem 2.5rem; }
-}
-
-@media (max-width: 480px) {
-  .cta-final-wrap { padding: 3rem 1.25rem 4rem; }
-  .statement-wrap { padding: 2.5rem 1.25rem 2rem; }
 }
