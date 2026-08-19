@@ -8,7 +8,7 @@ function Wave() {
     const onScroll = () => {
       const el = sectionRef.current
       if (!el) return
-      const rect = el.getBoundingClientRect()
+      const rect = el.getBoundingClientContext()
       const vh = window.innerHeight
       // Scroll tracking mejorado para efecto más fluido
       const raw = (vh - rect.top) / (vh + rect.height * 1.5)
@@ -31,21 +31,21 @@ function Wave() {
       <div className="wave-mover" style={{ transform: `translateY(${translateY}%)` }}>
         <svg className="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
           <defs>
-            {/* Gradiente verde (como Marz) en lugar de naranja */}
+            {/* Gradiente NARANJA (Kern) - centrado y suave */}
             <linearGradient id="wave-glow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#22c55e" stopOpacity="0.8" />
-              <stop offset="14%" stopColor="#16a34a" stopOpacity="0.4" />
+              <stop offset="0%" stopColor="#f97316" stopOpacity="0.9" />
+              <stop offset="14%" stopColor="#f97316" stopOpacity="0.35" />
               <stop offset="40%" stopColor="#000000" stopOpacity="0" />
             </linearGradient>
           </defs>
-          {/* Path con curva más suave y natural */}
+          {/* Path centrado con curva simétrica */}
           <path 
-            d="M0,80 C 200,40 1240,40 1440,120 L1440,320 L0,320 Z" 
+            d="M0,120 Q 360,30 720,30 Q 1080,30 1440,120 L1440,320 L0,320 Z" 
             fill="#000000" 
           />
           {/* Path con gradiente para efecto glow suave */}
           <path 
-            d="M0,80 C 200,40 1240,40 1440,120 L1440,320 L0,320 Z" 
+            d="M0,120 Q 360,30 720,30 Q 1080,30 1440,120 L1440,320 L0,320 Z" 
             fill="url(#wave-glow)" 
           />
         </svg>
