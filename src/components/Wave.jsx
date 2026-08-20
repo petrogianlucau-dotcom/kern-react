@@ -8,7 +8,7 @@ function Wave() {
     const onScroll = () => {
       const el = sectionRef.current
       if (!el) return
-      const rect = el.getBoundingClientContext()
+      const rect = el.getBoundingClientRect()
       const vh = window.innerHeight
       // Scroll tracking mejorado para efecto más fluido
       const raw = (vh - rect.top) / (vh + rect.height * 1.5)
