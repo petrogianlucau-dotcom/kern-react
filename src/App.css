@@ -1007,3 +1007,46 @@ body {
   border-color: rgba(255,255,255,0.16);
   color: var(--blanco);
 }
+/* ── CTA FINAL ── */
+.cta-final-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 4rem 8rem;
+  text-align: center;
+}
+
+.cta-final-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+}
+
+.cta-final-sub {
+  color: var(--gris);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.cta-final-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: var(--naranja);
+  color: #000;
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta-final-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .cta-final-wrap { padding: 4rem 1.5rem 6rem; }
+}
