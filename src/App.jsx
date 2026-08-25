@@ -20,6 +20,21 @@ function ScrollToTop() {
   return null
 }
 
+function AnimatedRoutes() {
+  const { pathname } = useLocation()
+  return (
+    <main key={pathname} className="page-fade">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/casos" element={<Casos />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
+    </main>
+  )
+}
+
 function App() {
   useScrollReveal()
 
@@ -28,15 +43,7 @@ function App() {
       <ScrollToTop />
       <Cursor />
       <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/casos" element={<Casos />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/contacto" element={<Contacto />} />
-        </Routes>
-      </main>
+      <AnimatedRoutes />
       <Footer />
       <WhatsApp />
     </BrowserRouter>
