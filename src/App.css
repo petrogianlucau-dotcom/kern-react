@@ -1050,3 +1050,13 @@ body {
 @media (max-width: 768px) {
   .cta-final-wrap { padding: 4rem 1.5rem 6rem; }
 }
+
+/* ── PAGE TRANSITION ── */
+.page-fade { animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-fade { animation: none; }
+}
