@@ -9,7 +9,6 @@ function Tecnologias() {
     { slug: "gmail", nombre: "Gmail" },
     { slug: "notion", nombre: "Notion" },
     { slug: "airtable", nombre: "Airtable" },
-    { slug: "slack", nombre: "Slack" },
     { slug: "telegram", nombre: "Telegram" },
     { slug: "zapier", nombre: "Zapier" },
   ]
