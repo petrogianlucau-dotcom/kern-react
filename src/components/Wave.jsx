@@ -24,7 +24,7 @@ function Wave() {
   }, [])
 
   // Rango de movimiento aumentado para animación más pronunciada
-  const translateY = (1 - progress) * 150
+  const translateY = (1 - progress) * 40
 
   return (
     <div className="wave-section" ref={sectionRef}>
